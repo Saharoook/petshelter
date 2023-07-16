@@ -1,0 +1,24 @@
+{% extends 'petshelter/base.html' %}
+
+{% load static %}
+
+{% block content %}
+<body>
+    <h1>Наши подопечные</h1>
+    {% for pupil in pupils %}
+    <hr style="border-color: #fbe3fd; border-width: 3px;">
+    <br>
+    <h4 class="d-flex p-2">{{ pupil.title }}</h4>
+    <p class="d-flex p-2">{{ pupil.created }}</p>
+    <div class="container d-flex p-2">
+        <div class="align-self-center">
+            <img src="{{ pupil.image_content.url }}" height="200" width="200">
+        </div>
+        <div class="align-self-center">
+            <p class="d-flex p-2"> {{ pupil.memo }}</p>
+        </div>
+    </div>
+    {% endfor %}
+</body>
+
+{% endblock %}
